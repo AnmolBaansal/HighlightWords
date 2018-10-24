@@ -77,7 +77,8 @@ class HighlightWordsCommand(sublime_plugin.WindowCommand):
 				continue
 			word_set.add(word)
 			regions = view.find_all(word, flag)
-			view.add_regions('highlight_word_%d' % size, regions,  SCOPES[size % len(SCOPES)] , '', sublime.HIDE_ON_MINIMAP)
+			# view.add_regions('highlight_word_%d' % size, regions,  SCOPES[size % len(SCOPES)] , '', sublime.HIDE_ON_MINIMAP)
+			view.add_regions('highlight_word_%d' % size, regions,  SCOPES[size % len(SCOPES)] , '', sublime.DRAW_NO_FILL)
 			size += 1
 		view.settings().set('highlight_size', size)
 		view.settings().set('highlight_text', text)
